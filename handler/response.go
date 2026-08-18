@@ -3,6 +3,7 @@ package handler
 import (
 	"fmt"
 
+	"github.com/davi1985/gopportunities/schemas"
 	"github.com/gin-gonic/gin"
 )
 
@@ -28,4 +29,33 @@ func sendSuccess(
 		),
 		"data": data,
 	})
+}
+
+type ErrorResponse struct {
+	Message   string `json:"message"`
+	ErrorCode int    `json:"errorCode"`
+}
+
+type CreateOpeningResponse struct {
+	Message string                  `json:"message"`
+	Data    schemas.OpeningResponse `json:"data"`
+}
+
+type DeleteOpeningResponse struct {
+	Message string `json:"message"`
+}
+
+type ListOpeningsResponse struct {
+	Message string                    `json:"message"`
+	Data    []schemas.OpeningResponse `json:"data"`
+}
+
+type ShowOpeningResponse struct {
+	Message string                  `json:"message"`
+	Data    schemas.OpeningResponse `json:"data"`
+}
+
+type UpdateOpeningResponse struct {
+	Message string                  `json:"message"`
+	Data    schemas.OpeningResponse `json:"data"`
 }

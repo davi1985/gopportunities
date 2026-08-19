@@ -1,87 +1,100 @@
 # gopportunities
 
-**gopportunities** is a RESTful API built with Go (Golang) designed to manage and publish job openings. This project focuses on simplicity, high performance, and idiomatic Go practices.
+[![Swagger UI](https://img.shields.io/badge/Swagger%20UI-API%20Documentation-85EA2D?logo=swagger&logoColor=black)](https://davi1985.github.io/gopportunities/)
 
----
+**gopportunities** is a REST API built with Go for managing job openings.
 
-## Architecture & Project Structure
+The project uses Gin for HTTP routing, GORM for database access, and SQLite during development.
 
-This project follows a simplified variation of the **Standard Go Project Layout**, ensuring separation of concerns, ease of maintenance, and scalability.
+## Tech Stack
+
+- **Go** 1.22+
+- **Gin** — HTTP web framework
+- **GORM** — ORM
+- **SQLite** — Development database
+- **Docker / Docker Compose** — Planned for the database and application environment
+
+## Project Structure
+
+The project currently uses a simple structure with each package focused on a specific responsibility:
 
 ```text
 .
-├── config/                   # Global configuration, env variables, and DB setup
-├── handler/                  # HTTP Controllers / REST Handlers
-├── router/                   # Definition and grouping of HTTP routes
-├── schemas/                  # DTOs, request validation schemas, and JSON responses
+├── config/                   # Application configuration and database setup
+├── handler/                  # HTTP handlers
+├── router/                   # HTTP route definitions
+├── schemas/                  # Request and response schemas
 ├── go.mod
 ├── go.sum
 └── main.go                   # Application entry point
 ```
 
-## Tech Stack
-
-- **Language:** [Go](https://go.dev/) (Golang)
-- **Web Framework:** [Gin](https://gin-gonic.com/)
-- **ORM:** [GORM](https://gorm.io/)
-- **Current Database:** SQLite (Development environment)
-
 ## Getting Started
 
-### Prerequisites
+### Requirements
 
-- **Go** 1.22+ installed
-- **Docker** & **Docker Compose** (optional, for containerized setup)
+- Go 1.22 or later
+- Git
 
-### Running Locally (with SQLite)
+Docker is not required to run the current version, since the application uses SQLite.
 
-1. Clone the repository:
+### Clone the repository
 
 ```bash
-git clone [https://github.com/davi1985/gopportunities.git](https://github.com/davi1985/gopportunities.git)
+git clone https://github.com/davi1985/gopportunities.git
 cd gopportunities
-
 ```
 
-2. Install dependencies:
+### Install dependencies
 
 ```bash
 go mod download
-
 ```
 
-3. Run the application:
+### Run the API
 
 ```bash
 go run main.go
-
 ```
 
-_The API will be available at `http://localhost:8080`._
+The API will be available at:
 
-## API Endpoints
+```text
+http://localhost:8080
+```
 
-| Method   | Endpoint           | Description                      |
-| -------- | ------------------ | -------------------------------- |
-| `GET`    | `/api/v1/openings` | List all job openings            |
-| `GET`    | `/api/v1/opening`  | Get a specific job opening by ID |
-| `POST`   | `/api/v1/opening`  | Create a new job opening         |
-| `PUT`    | `/api/v1/opening`  | Update an existing job opening   |
-| `DELETE` | `/api/v1/opening`  | Delete a job opening             |
+## API
 
-## Roadmap & Future Improvements
+The API is available under the `/api/v1` prefix.
 
-- [ ] **Standard Go Layout Migration (`cmd/` & `internal/`)**
-- Reorganize project structure following the Standard Go Layout.
-- Move the entry point to `cmd/api/main.go`.
-- Encapsulate handlers, repositories, and domain entities inside the `internal/` directory to protect private packages.
+| Method   | Endpoint           | Description             |
+| -------- | ------------------ | ----------------------- |
+| `GET`    | `/api/v1/openings` | List all job openings   |
+| `GET`    | `/api/v1/opening`  | Get a job opening by ID |
+| `POST`   | `/api/v1/opening`  | Create a job opening    |
+| `PUT`    | `/api/v1/opening`  | Update a job opening    |
+| `DELETE` | `/api/v1/opening`  | Delete a job opening    |
 
-* [ ] **Migration to PostgreSQL / Docker**
-* Transition from SQLite (used for quick prototyping) to **PostgreSQL** using Docker Compose.
-* Ensure native support for connection pooling and isolated containerized database instances for both testing and production.
+### API Documentation
 
-* [ ] **Generic Repository Implementation**
-* Implement a generic repository pattern using **Go Generics** (`[T any]`) to abstract repetitive CRUD operations across GORM repositories, reducing boilerplate.
+The complete API documentation is available through Swagger UI:
+
+**[Open Swagger UI](https://davi1985.github.io/gopportunities/)**
+
+## Roadmap
+
+- [ ] Move the application entry point to `cmd/api/main.go`
+- [ ] Adopt the `internal/` package structure
+- [ ] Migrate from SQLite to PostgreSQL
+- [ ] Add Docker Compose configuration
+- [ ] Add a generic repository using Go Generics
+- [ ] Add unit tests for handlers and validations
+- [ ] Add integration tests with Testcontainers
+- [ ] Containerize the API
+
+### Generic Repository
+
+One of the planned improvements is a generic repository to reduce repeated CRUD code across repositories:
 
 ```go
 type Repository[T any] interface {
@@ -93,7 +106,13 @@ type Repository[T any] interface {
 }
 ```
 
-- [ ] **Automated Test Suite**
-- **Unit Testing:** Implement unit tests for handlers, logic, and DTO validations using `testing` and `stretchr/testify`.
-- **Integration Testing:** Add support for **Testcontainers** to spin up an actual PostgreSQL container during automated database repository testing.
-- [ ] **Full API Containerization**
+### Testing
+
+The test suite will cover different parts of the application:
+
+- **Unit tests:** handlers, application logic, and request validation.
+- **Integration tests:** repository and database operations using a PostgreSQL container through Testcontainers.
+
+## License
+
+This project is available for learning and experimentation.

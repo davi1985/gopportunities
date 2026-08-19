@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// ListOpeningHandler handles the listing of all job openings.
 // @Summary List openings
 // @Description List all job openings
 // @Tags Openings

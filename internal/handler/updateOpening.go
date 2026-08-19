@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// UpdateOpeningHandler handles the update of a job opening by ID.
 // @Summary Update opening
 // @Description Update a job opening
 // @Tags Openings

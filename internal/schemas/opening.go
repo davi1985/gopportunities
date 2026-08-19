@@ -1,3 +1,4 @@
+// Package schemas defines the data structures used in the application, including the Opening model and its corresponding response structure.
 package schemas
 
 import (

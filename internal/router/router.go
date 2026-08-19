@@ -1,3 +1,4 @@
+// Package router initializes the HTTP router for the application.
 package router
 
 import "github.com/gin-gonic/gin"

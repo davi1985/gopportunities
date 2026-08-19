@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// ShowOpeningHandler handles the retrieval of a job opening by ID.
 // @Summary Show opening
 // @Description Show a job opening by ID
 // @Tags Openings

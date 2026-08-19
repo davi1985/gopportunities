@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// CreateOpeningHandler handles the creation of a new job opening.
 // @BasePath /api/v1
 // @Summary Create opening
 // @Description Create a new job opening

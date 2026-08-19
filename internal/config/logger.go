@@ -27,30 +27,42 @@ func NewLogger(prefix string) *Logger {
 	}
 }
 
-// Create Non-Formatted Logs
+// Debug logs a non-formatted debug message.
 func (l *Logger) Debug(v ...interface{}) {
 	l.debug.Println(v...)
 }
+
+// Info logs a non-formatted informational message.
 func (l *Logger) Info(v ...interface{}) {
 	l.info.Println(v...)
 }
+
+// Warn logs a non-formatted warning message.
 func (l *Logger) Warn(v ...interface{}) {
 	l.warning.Println(v...)
 }
+
+// Error logs a non-formatted error message.
 func (l *Logger) Error(v ...interface{}) {
 	l.err.Println(v...)
 }
 
-// Create Format Enabled logs
+// Debugf logs a formatted debug message.
 func (l *Logger) Debugf(format string, v ...interface{}) {
 	l.debug.Printf(format, v...)
 }
+
+// Infof logs a formatted informational message.
 func (l *Logger) Infof(format string, v ...interface{}) {
 	l.info.Printf(format, v...)
 }
+
+// Warnf logs a formatted warning message.
 func (l *Logger) Warnf(format string, v ...interface{}) {
 	l.warning.Printf(format, v...)
 }
+
+// Errorf logs a formatted error message.
 func (l *Logger) Errorf(format string, v ...interface{}) {
 	l.err.Printf(format, v...)
 }

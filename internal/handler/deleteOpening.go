@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// DeleteOpeningHandler handles the deletion of a job opening by ID.
 // @Summary Delete opening
 // @Description Delete a job opening by ID
 // @Tags Openings

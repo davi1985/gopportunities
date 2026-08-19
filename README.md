@@ -83,8 +83,8 @@ The complete API documentation is available through Swagger UI:
 
 ## Roadmap
 
-- [ ] Move the application entry point to `cmd/api/main.go`
-- [ ] Adopt the `internal/` package structure
+- [x] Move the application entry point to `cmd/api/main.go`
+- [x] Adopt the `internal/` package structure
 - [ ] Migrate from SQLite to PostgreSQL
 - [ ] Add Docker Compose configuration
 - [ ] Add a generic repository using Go Generics

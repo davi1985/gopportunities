@@ -1,27 +1,22 @@
-# 🚀 Gopportunities
+# gopportunities
 
-**Gopportunities** is a RESTful API built with Go (Golang) designed to manage and publish job openings. This project focuses on simplicity, high performance, and idiomatic Go practices.
+**gopportunities** is a RESTful API built with Go (Golang) designed to manage and publish job openings. This project focuses on simplicity, high performance, and idiomatic Go practices.
 
 ---
 
-## 🏗️ Architecture & Project Structure
+## Architecture & Project Structure
 
 This project follows a simplified variation of the **Standard Go Project Layout**, ensuring separation of concerns, ease of maintenance, and scalability.
 
 ```text
 .
-├── cmd/
-│   └── api/
-│       └── main.go           # Application entry point (server/routes initialization)
-├── config/                   # Global configuration, env variables, and DB connection
-├── internal/                 # Application private code (Business Logic & Delivery)
-│   ├── handler/              # HTTP Controllers / REST Handlers
-│   ├── repository/           # Persistence layer (Database operations)
-│   └── entity/               # Domain entities and models
-├── schemas/                  # DTOs, validation schemas, and JSON responses
+├── config/                   # Global configuration, env variables, and DB setup
+├── handler/                  # HTTP Controllers / REST Handlers
 ├── router/                   # Definition and grouping of HTTP routes
+├── schemas/                  # DTOs, request validation schemas, and JSON responses
 ├── go.mod
-└── go.sum
+├── go.sum
+└── main.go                   # Application entry point
 ```
 
 ## Tech Stack

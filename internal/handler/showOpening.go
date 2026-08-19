@@ -4,22 +4,22 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/davi1985/gopportunities/schemas"
+	"github.com/davi1985/gopportunities/internal/schemas"
 	"github.com/gin-gonic/gin"
 )
 
-// @Summary Delete opening
-// @Description Delete a job opening by ID
+// @Summary Show opening
+// @Description Show a job opening by ID
 // @Tags Openings
 // @Accept json
 // @Produce json
 // @Param id query string true "Opening identification"
-// @Success 204 {object} DeleteOpeningResponse
+// @Success 200 {object} ShowOpeningResponse
 // @Failure 400 {object} ErrorResponse
 // @Failure 404 {object} ErrorResponse
 // @Failure 500 {object} ErrorResponse
-// @Router /opening [delete]
-func DeleteOpeningHandler(ctx *gin.Context) {
+// @Router /opening [get]
+func ShowOpeningHandler(ctx *gin.Context) {
 	id := ctx.Query("id")
 	if id == "" {
 		sendError(
@@ -41,19 +41,9 @@ func DeleteOpeningHandler(ctx *gin.Context) {
 		return
 	}
 
-	if err := db.Delete(&opening).Error; err != nil {
-		sendError(
-			ctx,
-			http.StatusInternalServerError,
-			fmt.Sprintf("error deleting opening with id: %s", id),
-		)
-		return
-	}
-
 	sendSuccess(
 		ctx,
-		http.StatusNoContent,
-		"delete-opening",
-		nil,
-	)
+		http.StatusOK,
+		"show-opening",
+		schemas.NewOpeningResponse(opening))
 }

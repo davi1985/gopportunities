@@ -113,6 +113,6 @@ The test suite will cover different parts of the application:
 - **Unit tests:** handlers, application logic, and request validation.
 - **Integration tests:** repository and database operations using a PostgreSQL container through Testcontainers.
 
-## License
+## :memo: License
 
-This project is available for learning and experimentation.
+This project is under the [MIT license](./LICENSE).
